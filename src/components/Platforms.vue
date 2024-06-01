@@ -1,14 +1,13 @@
 <script setup>
-defineProps({})
+import PlatformsGrafico from './PlatformsGrafico.vue'
 </script>
 
 <template>
   <div class="container">
-    <div class="box">Gráfico Platforms</div>
-    <div class="box">Comentários Platforms</div>
+    <div class="box"><PlatformsGrafico></PlatformsGrafico></div>
+    <div class="boxText"></div>
   </div>
 </template>
-
 <style scoped>
 .container {
   display: flex;
@@ -21,8 +20,8 @@ defineProps({})
 }
 
 .box {
-  width: 200px;
-  height: 100px;
+  width: 90%;
+  height: 600px;
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -30,9 +29,7 @@ defineProps({})
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
   padding: 10px;
 }
 </style>
+zzs

@@ -1,7 +1,6 @@
 import pandas as pd
 import pyodbc
-import matplotlib.pyplot as plt
-
+import plotly.express as px
 
 try:
    
@@ -36,27 +35,20 @@ try:
   
     print(df_grouped)
 
-    plt.figure(figsize=(12, 8))
+    fig = px.line(df_grouped, x='Year', y=['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales', 'Global_Sales'],
+                  labels={'value': 'Sales (in millions)', 'Year': 'Year'},
+                  title='Video Game Sales by Year')
     
-    plt.plot(df_grouped['Year'], df_grouped['NA_Sales'], label='NA Sales', marker='o')
-    plt.plot(df_grouped['Year'], df_grouped['EU_Sales'], label='EU Sales', marker='o')
-    plt.plot(df_grouped['Year'], df_grouped['JP_Sales'], label='JP Sales', marker='o')
-    plt.plot(df_grouped['Year'], df_grouped['Other_Sales'], label='Other Sales', marker='o')
-    plt.plot(df_grouped['Year'], df_grouped['Global_Sales'], label='Global Sales', marker='o')
+    fig.update_traces(mode='markers+lines')
+    fig.update_layout(xaxis=dict(tickmode='linear', dtick=5, range=[1984, 2015]),
+                      yaxis=dict(tickmode='linear', dtick=100, range=[0, 900]),
+                      legend=dict(orientation='h', yanchor='top', y=1.15, xanchor='right', x=1),
+                      xaxis_title='Year',
+                      yaxis_title='Sales (in millions)',
+                      title_x=0.5,
+                      hovermode='x unified')
     
-    plt.xlabel('Year')
-    plt.ylabel('Sales (in millions)')
-    plt.title('Video Game Sales by Year')
-    plt.legend()
-    plt.grid(True)
-    plt.xlim(1984, 2015)
-    plt.xticks(range(1984, 2016, 5))
-    plt.ylim(0, 100)
-    plt.yticks(range(0, 900, 100))
-    
-    plt.tight_layout()
-
-    plt.show()
+    fig.write_html("video_game_sales.html")
     
 except pyodbc.Error as e:
     print("Erro ao conectar ao banco de dados:", e)

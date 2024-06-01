@@ -27,29 +27,40 @@ import Platforms from './components/Platforms.vue'
     <Platforms></Platforms>
   </main>
 </template>
-
 <style scoped>
 header {
-  background-color: #4caf50; /* Cor de fundo verde */
-  padding: 20px; /* Espaçamento interno */
-  color: white; /* Cor da fonte */
-  text-align: center; /* Centralizar o texto */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  background-color: var(--color-background);
+  padding: 20px;
+  color: var(--color-heading);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 header h1 {
   margin: 0;
-  font-size: 28px; /* Tamanho da fonte do título */
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header h2 {
   margin: 0;
-  font-size: 18px; /* Tamanho da fonte do subtítulo */
-  font-weight: normal; /* Peso da fonte do subtítulo */
-  margin-top: 10px; /* Espaço entre título e subtítulo */
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+header a {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
 }
 
 main {
-  padding: 20px; /* Espaçamento interno */
+  padding: 20px;
 }
 </style>

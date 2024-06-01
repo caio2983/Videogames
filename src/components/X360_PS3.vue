@@ -1,11 +1,12 @@
 <script setup>
-defineProps({})
+import X360_Top5Grafico from './X360_Top5Grafico.vue'
+import PS3_Top5Grafico from './PS3_Top5Grafico.vue'
 </script>
 
 <template>
   <div class="container">
-    <div class="box">PS3 2008</div>
-    <div class="box">X360 2008</div>
+    <div class="box"><X360_Top5Grafico /></div>
+    <div class="box"><PS3_Top5Grafico /></div>
   </div>
 </template>
 
@@ -21,8 +22,8 @@ defineProps({})
 }
 
 .box {
-  width: 200px;
-  height: 100px;
+  width: 45%;
+  height: 600px; /* Ajuste a altura conforme necessário */
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -30,9 +31,6 @@ defineProps({})
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
-  color: #333;
-  text-align: center;
   padding: 10px;
 }
 </style>
